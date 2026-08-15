@@ -206,6 +206,10 @@ body.dark-mode .panel {
   align-items: center;
 }
 
+.board-hero {
+  grid-template-columns: 1fr;
+}
+
 .hero h2,
 .page-title {
   margin: 0 0 0.75rem;
@@ -246,6 +250,12 @@ body.dark-mode .page-title {
 
 .hero-image {
   aspect-ratio: 4 / 3;
+}
+
+.board-poster {
+  aspect-ratio: 16 / 10;
+  background: #fff;
+  object-fit: contain;
 }
 
 .feature-image {
@@ -341,10 +351,23 @@ body.dark-mode .tender h3 {
   display: block;
 }
 
+.gallery-grid img.gallery-poster {
+  object-fit: contain;
+  background: #fff;
+}
+
 .gallery-grid figcaption {
   padding: 0.75rem 0.9rem;
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.wide-gallery-item {
+  grid-column: span 2;
+}
+
+.wide-gallery-item img {
+  height: 360px;
 }
 
 .summary-grid {
@@ -485,6 +508,10 @@ body.dark-mode .site-footer {
 
   .hero-grid {
     grid-template-columns: 1fr;
+  }
+
+  .wide-gallery-item {
+    grid-column: span 1;
   }
 
   .floating-contact {
