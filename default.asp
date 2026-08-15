@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Arihant Arden AAO</title>
+  <meta name="description" content="Arihant Arden AAO – Association of Apartment Owners, Greater Noida West"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --bg: linear-gradient(to right, #e8f5e9, #c8e6c9);
+      --accent: #43a047;
+      --white: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font: 16px/1.6 'Poppins', sans-serif;
+      background: var(--bg);
+      color: #333;
+    }
+
+    header {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 4px 15px var(--shadow);
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 80px;
+      margin-right: 1rem;
+    }
+
+    header .info a {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    nav {
+      background: var(--white);
+      box-shadow: 0 2px 8px var(--shadow);
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: .8rem;
+    }
+
+    nav a {
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: black;
+      transform: translateY(-2px);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .hero {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px var(--shadow);
+      transition: .3s ease;
+      margin-top: 2rem;
+    }
+
+    .hero:hover {
+      transform: scale(1.02);
+    }
+
+    .container {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px var(--shadow);
+      margin-bottom: 2rem;
+      padding: 2rem;
+    }
+
+
+    @media (max-width: 768px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+    }
+  </style>
+<!-- INJECTED_HEADER_STYLES -->
+<style>
+
+/* --- Injected header/nav/styles --- */
+:root {
+  --primary: #2e7d32;
+  --accent: #0f4b18;
+  --pastel-green: #e6f6e7;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --white: #fff;
+}
+/* Dual-tone header */
+header {
+  background: linear-gradient(to bottom, #ffffff 60%, var(--pastel-green) 100%);
+  color: #0f4b18;
+  box-shadow: 0 4px 15px var(--shadow);
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  flex-wrap: wrap;
+}
+header img { height: 80px; margin-right: 1rem; }
+header .info h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; color: #0f4b18; }
+header .info p { font-size: 15px; margin-bottom: 4px; color: #333; }
+header .info a { color: #0f4b18; font-weight: 600; text-decoration: none; }
+header .info a:hover { text-decoration: underline; }
+
+nav {
+  background: var(--white);
+  box-shadow: 0 2px 8px var(--shadow);
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  padding: 0.9rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  align-items: center;
+}
+nav .nav-logo-mobile img { height: 48px; }
+.nav-logo-mobile { display: none; }
+nav .nav-links { display:flex; gap:1.8rem; align-items:center; }
+nav a { color: var(--primary); font-weight:600; font-size:16px; text-decoration:none; padding-bottom:4px; transition:0.3s ease; border-bottom:2px solid transparent; position: relative; }
+nav a::after { content:""; position: absolute; width:0; height:2px; left:0; bottom:-2px; background: var(--accent); transition: 0.35s; }
+nav a:hover::after, nav a.active::after { width:100%; }
+nav a:hover, nav a.active { color: var(--accent); transform: translateY(-2px); }
+
+/* Mobile nav */
+.hamburger { font-size:28px; background:none; border:none; cursor:pointer; display:none; }
+.nav-open .nav-links { display:flex !important; flex-direction:column; width:100%; background:var(--white); padding:1rem; box-shadow:0 4px 12px var(--shadow); }
+@media (max-width:820px){
+  .hamburger { display:block; }
+  .nav-logo-mobile { display:flex; align-items:center; justify-content:space-between; width:100%; }
+  nav .nav-links { display:none; }
+  nav .nav-links a { padding:10px 0; border-bottom:1px solid #cbe5cb; }
+}
+
+/* Floating contact */
+.floating-contact { position: fixed; bottom: 22px; right: 22px; background: var(--accent); padding: 12px 20px; border-radius: 50px; box-shadow: 0 4px 12px var(--shadow); color: white; font-weight: 600; z-index: 99; text-decoration: none; transition: 0.3s; }
+.floating-contact:hover { background: #0b3e13; transform: scale(1.05); }
+
+/* Dark mode */
+.dark-mode { background:#111 !important; color:#eaeaea !important; }
+.dark-mode header { background:#1a1a1a !important; color:#fff !important; }
+.dark-mode nav { background:#222 !important; }
+.dark-mode nav a { color:#eaeaea !important; }
+.dark-mode .container, .dark-mode .aao-board-section { background:#1a1a1a !important; color:#eaeaea !important; }
+
+</style>
+</head>
+
+<body>
+  
+<header>
+  <img src="untitled.png" alt="Arihant Arden Logo"/>
+  <div class="info">
+    <h1>Arihant Arden Association of Apartment Owners</h1>
+    <p>Plot No GH‑07A, Sector 1, Greater Noida West</p>
+    <p>📞 +91 120 5145800 • ✉️ <a href="mailto:admin@arihantardenaoa.org">admin@arihantardenaoa.org</a></p>
+  </div>
+</header>
+
+
+  
+<nav>
+  <div class="nav-logo-mobile">
+    <img src="untitled.png" alt="Logo"/>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <div class="nav-links">
+    <a href="default.asp" class="active">Home</a>
+    <a href="html_about.asp">About</a>
+    <a href="html_gallery.asp">Gallery</a>
+    <a href="tender.html">Tenders</a>
+    <a href="achievements.asp">Achievements</a>
+    <a href="info-sharing.html">Information Board</a>
+  </div>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+</nav>
+ 
+
+  <main>
+    <div class="container">
+      <!-- AAO Board Section Start -->
+<style>
+  .aao-board-section {
+    background: #f7fdf7;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    max-width: 900px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+  }
+
+  .aao-board-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #1a5f1a;
+  }
+
+  .aao-board-section p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .aao-board-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+
+  .aao-board-section ul li {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .aao-board-image {
+    margin-top: 25px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+</style>
+<div class="aao-board-section">
+    <h2><strong>AAO Board – 2026</strong></h2>
+
+    <p>
+        We are pleased to introduce the newly elected board of the
+        <strong>Arihant Arden Apartment Owners Association</strong> for the year <strong>2026</strong>.
+        This team is committed to improving the quality of life for all residents by ensuring
+        <em>transparency, safety, and community development</em>.
+    </p>
+
+    <p>
+        The board is led by <strong>Nishith Kant Chaturvedi</strong> as <strong>President</strong>,
+        supported by:
+    </p>
+
+    <ul>
+        <li><strong>Jeetendra Sharma</strong> – <em>Vice President</em></li>
+        <li><strong>Lokesh Tyagi</strong> – <em>Secretary</em></li>
+        <li><strong>Rakesh Kumar Posh</strong> – <em>Treasurer</em></li>
+        <li><strong>Ashok K Singh</strong> – <em>Joint Secretary</em></li>
+        <li><strong>Priyanka Jain</strong> – <em>Joint Treasurer</em></li>
+    </ul>
+
+    <p>
+        Our Executive Members include:
+        <strong>Anjana Sareen</strong>,
+        <strong>Ravi Shanker</strong>,
+        <strong>Prashant Seth</strong>, and
+        <strong>Manoj Kumar</strong>.
+    </p>
+
+    <p>
+        We look forward to working together with the entire community to make
+        <strong>Arihant Arden</strong> a model of cooperative living.
+    </p>
+
+    <img src="aao2026.png" alt="AAO Team 2026" class="hero" id="team-image" />
+</div>
+<!-- AAO Board Section End -->
+<div class="aao-board-section">
+  <h2><strong>AAO Board – 2025</strong></h2>
+
+  <p>
+    We are pleased to introduce the newly elected board of the 
+    <strong>Arihant Arden Apartment Owners Association</strong> for the year <strong>2025</strong>. 
+    This team is committed to improving the quality of life for all residents by ensuring 
+    <em>transparency, safety, and community development</em>.
+  </p>
+
+  <p>
+    The board is led by <strong>Nishith Kant Chaturvedi</strong> as <strong>President</strong>, 
+    supported by:
+  </p>
+
+  <ul>
+    <li><strong>R K Posh</strong> – <em>Vice President</em></li>
+    <li><strong>Lokesh Tyagi</strong> – <em>Secretary</em></li>
+    <li><strong>Ashok K Singh</strong> – <em>Treasurer</em></li>
+    <li><strong>Ravi Shanker</strong> – <em>Joint Secretary</em></li>
+    <li><strong>Priyanka Jain</strong> – <em>Joint Treasurer</em></li>
+  </ul>
+
+  <p>
+    Our Executive Members include: 
+    <strong>N K Singh</strong>, 
+    <strong>Satyam Srivastava</strong>, 
+    <strong>Sanjay Chaudhary</strong>, and 
+    <strong>Varun Girdhar</strong>.
+  </p>
+
+  <p>
+    We look forward to working together with the entire community to make 
+    <strong>Arihant Arden</strong> a model of cooperative living.
+  </p>
+
+   <img src="team_2025_nishith.jpg" alt="AAO Team 2025" class="hero" id="team-image"/>
+</div>
+<!-- AAO Board Section End --> 
+   
+    </div>
+  </main>
+
+<!-- INJECTED_HEADER_SCRIPTS -->
+<script>
+
+/* Mobile nav and dark mode scripts */
+function toggleMenu(){ document.querySelector('nav').classList.toggle('nav-open'); }
+function toggleDarkMode(){
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem("mode", document.body.classList.contains("dark-mode") ? "dark" : "light");
+}
+window.addEventListener('DOMContentLoaded', function(){
+  if(localStorage.getItem("mode")==='dark'){ document.body.classList.add('dark-mode'); }
+  // add floating contact buttons if not present
+  if(!document.querySelector('.floating-contact')){
+    var a=document.createElement('a'); a.className='floating-contact'; a.href='tel:+911205145800'; a.innerText='📞 Call Office';
+    document.body.appendChild(a);
+    // add email small button
+    var b=document.createElement('a'); b.className='floating-contact'; b.style.right='140px'; b.href='mailto:admin@arihantardenaoa.org'; b.innerText='✉️ Email';
+    document.body.appendChild(b);
+  }
+  // Auto-detect preferred color scheme if user has no saved preference
+  if(!localStorage.getItem("mode")){
+    if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      document.body.classList.add('dark-mode');
+    }
+  }
+});
+
+</script>
+</body>
+</html>

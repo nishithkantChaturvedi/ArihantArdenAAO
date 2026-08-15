@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Active and archived tenders from Arihant Arden Association of Apartment Owners, Greater Noida West." />
+  <title>Tenders – Arihant Arden AOA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --accent: #0f4b18;
+      --pastel-green: #e6f6e7;
+      --bg-gradient: linear-gradient(to right, #e8f5e9, #c8e6c9);
+      --text: #2e2e2e;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --white: #fff;
+      --link: #1565c0;
+      --notice-bg: #fff8e1;
+      --notice-border: #ffb300;
+      --danger: #c62828;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to bottom, var(--white) 60%, var(--pastel-green) 100%);
+      color: var(--accent);
+      box-shadow: 0 4px 15px var(--shadow);
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    header img {
+      height: 80px;
+      width: auto;
+    }
+
+    header .info h1 {
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
+      font-weight: 700;
+      margin: 0 0 0.4rem;
+      color: var(--accent);
+    }
+
+    header .info p {
+      font-size: 0.95rem;
+      margin: 0.25rem 0;
+      color: #333;
+    }
+
+    header .info a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    header .info a:hover { text-decoration: underline; }
+
+    /* Navigation */
+    nav {
+      background: var(--white);
+      box-shadow: 0 2px 8px var(--shadow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-logo-mobile {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo-mobile img { height: 48px; }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      position: relative;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -2px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    nav a:hover::after,
+    nav a.active::after { width: 100%; }
+
+    .hamburger {
+      font-size: 1.75rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--accent);
+      padding: 0.25rem;
+      line-height: 1;
+    }
+
+    .dark-toggle {
+      background: none;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .dark-toggle:hover {
+      background: var(--pastel-green);
+      transform: scale(1.08);
+    }
+
+    /* Main content */
+    main.container {
+      max-width: 1000px;
+      margin: 2.5rem auto;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin: 0 0 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--pastel-green);
+    }
+
+    .tender {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tender:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .tender h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin: 0 0 0.75rem;
+      line-height: 1.4;
+    }
+
+    .tender-meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.75rem;
+    }
+
+    .tender p { margin: 0.5rem 0; }
+
+    .tender ul {
+      margin: 0.5rem 0 0.5rem 1.25rem;
+      padding: 0;
+    }
+
+    .tender li { margin-bottom: 0.35rem; }
+
+    .tender a {
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--link);
+    }
+
+    .tender a:hover { text-decoration: underline; }
+
+    .tender .doc-link {
+      display: inline-block;
+      margin-top: 0.35rem;
+    }
+
+    .notice {
+      background: var(--notice-bg);
+      border-left: 6px solid var(--notice-border);
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .notice p { margin: 0.5rem 0; }
+
+    .note-warning {
+      margin-top: 0.75rem;
+      font-weight: 500;
+      color: var(--danger);
+    }
+
+    .tender-archived {
+      opacity: 0.92;
+    }
+
+    .tender-archived h3 {
+      font-size: 1.05rem;
+    }
+
+    /* Floating contact */
+    .floating-contact {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: var(--accent);
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px var(--shadow);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 99;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .floating-contact:hover {
+      background: #0b3e13;
+      transform: scale(1.05);
+    }
+
+    .floating-contact.email { right: 160px; }
+
+    footer {
+      text-align: center;
+      padding: 1.25rem;
+      background: #f4f4f4;
+      color: #555;
+      font-size: 0.875rem;
+      margin-top: 3rem;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Dark mode */
+    body.dark-mode {
+      background: #111;
+      color: #eaeaea;
+    }
+
+    body.dark-mode header {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    body.dark-mode header .info h1,
+    body.dark-mode header .info a { color: #a5d6a7; }
+
+    body.dark-mode header .info p { color: #ccc; }
+
+    body.dark-mode nav { background: #222; }
+
+    body.dark-mode nav a { color: #a5d6a7; }
+
+    body.dark-mode nav a:hover,
+    body.dark-mode nav a.active { color: #fff; }
+
+    body.dark-mode main.container {
+      background: #1a1a1a;
+      color: #eaeaea;
+    }
+
+    body.dark-mode .tender { border-color: #333; }
+
+    body.dark-mode .notice {
+      background: #2a2618;
+      border-color: #ffb300;
+    }
+
+    body.dark-mode footer {
+      background: #1a1a1a;
+      color: #aaa;
+    }
+
+    body.dark-mode .dark-toggle {
+      border-color: #a5d6a7;
+    }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.25rem;
+      }
+
+      header img { margin-right: 0; }
+
+      .hamburger { display: block; }
+
+      .nav-logo-mobile { display: flex; }
+
+      nav { flex-wrap: wrap; }
+
+      nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--white);
+        padding: 1rem;
+        box-shadow: 0 4px 12px var(--shadow);
+      }
+
+      nav.nav-open .nav-links { display: flex; }
+
+      nav .nav-links a {
+        padding: 0.6rem 0;
+        border-bottom: 1px solid #cbe5cb;
+        width: 100%;
+        text-align: center;
+      }
+
+      .floating-contact.email { right: 22px; bottom: 72px; }
+
+      main.container { margin: 1.5rem 1rem; padding: 1.25rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="untitled.png" alt="Arihant Arden Logo" width="80" height="80" loading="eager" />
+    <div class="info">
+      <h1>Arihant Arden Association of Apartment Owners</h1>
+      <p>Plot No GH‑07A, Sector 1, Greater Noida West</p>
+      <p>📞 +91 120 5145800 &bull; ✉️ <a href="mailto:admin@arihantardenaoa.org">admin@arihantardenaoa.org</a></p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-logo-mobile">
+      <img src="untitled.png" alt="Logo" width="48" height="48" loading="lazy" />
+      <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
+    </div>
+
+    <div class="nav-links">
+      <a href="default.asp">Home</a>
+      <a href="html_about.asp">About</a>
+      <a href="html_gallery.asp">Gallery</a>
+      <a href="tender.asp" class="active" aria-current="page">Tenders</a>
+      <a href="achievements.asp">Achievements</a>
+      <a href="info-sharing.html">Information Board</a>
+    </div>
+
+    <button class="dark-toggle" type="button" aria-label="Toggle dark mode" onclick="toggleDarkMode()">🌙</button>
+  </nav>
+
+  <main class="container">
+    <h2 class="page-title">Tenders &amp; Notices</h2>
+
+    <!-- Independent External Audit -->
+    <article class="tender">
+      <h3>Notice Inviting Proposals for Independent External Audit</h3>
+      <p class="tender-meta"><strong>Date:</strong> 20 June 2026</p>
+
+      <p>The Arihant Arden Apartment Owners Association (AAO) invites proposals from experienced ICAI-registered Chartered Accountant firms for conducting an Independent External Audit of the Society for FY 2025-26.</p>
+
+      <p>The audit will cover financial transactions, statutory compliances, contracts, procurement, capital expenditure, internal controls, governance processes and risk assessment to provide an independent assurance to members regarding financial transparency and accountability.</p>
+
+      <p><strong>Eligibility</strong></p>
+      <ul>
+        <li>ICAI registered CA Firm with minimum 10 years of practice.</li>
+        <li>Experience of auditing at least 3 residential societies having 750+ flats during the last 5 years.</li>
+        <li>Engagement Partner should be an FCA with minimum 15 years of experience.</li>
+        <li>The firm should not be the current statutory auditor of the Society.</li>
+      </ul>
+
+      <p><strong>Submission</strong></p>
+      <p>Interested firms are requested to submit their Technical Bid and Commercial Bid in separate sealed envelopes, enclosed within one outer envelope superscribed:</p>
+      <p><em>"Proposal for Appointment of Independent External Auditor – Do Not Open"</em></p>
+
+      <p><strong>Important Dates</strong></p>
+      <ul>
+        <li><strong>RFP Issue Date:</strong> 20 June 2026</li>
+        <li><strong>Last Date for Submission:</strong> To be notified</li>
+        <li><strong>Technical &amp; Commercial Evaluation:</strong> As per the RFP schedule</li>
+      </ul>
+
+      <p>The detailed Request for Proposal (RFP), scope of work, eligibility criteria, evaluation methodology and commercial bid format may be obtained from the Society Office during office hours or by writing to:</p>
+      <p>📧 <a href="mailto:admin@arihantardenaoa.org">admin@arihantardenaoa.org</a>, <a href="mailto:president@arihantardenaoa.org">president@arihantardenaoa.org</a></p>
+
+      <p><strong>Issued by</strong><br />
+      President<br />
+      Arihant Arden Apartment Owners Association (AAO)</p>
+    </article>
+
+    <!-- Solar cancellation -->
+    <article class="tender">
+      <h3>NOTICE OF TENDER CANCELLATION AND RE-TENDERING – Rooftop Solar System</h3>
+      <p class="tender-meta">
+        <strong>Tender No.:</strong> ARIHANT ARDEN/Rooftop Solar/2025-26/01 &bull;
+        <strong>Date:</strong> 8th November 2025
+      </p>
+
+      <div class="notice">
+        <p>The Board of Management, <strong>Arihant Arden Association of Apartment Owners (AAO)</strong>,
+        hereby informs all concerned bidders and stakeholders that the above-referenced tender for
+        <em>"Design, Installation, Testing, and Commissioning of a 500 kVA Rooftop Solar System"</em>,
+        originally published on <strong>23rd July 2025</strong>, is hereby <strong>cancelled</strong> due to administrative and technical review considerations.</p>
+
+        <p>A revised tender (Re-Tender) will be issued shortly with updated technical specifications and timelines.
+        All interested and eligible bidders are requested to visit our official website
+        <a href="http://arihantardenaoa.org">www.arihantardenaoa.org</a> regularly for updates and release of the new tender document.</p>
+
+        <p><strong>Refund Notice:</strong> The tender document fee and EMD (Earnest Money Deposit) received from participants
+        in the cancelled tender will be <strong>refunded in full within the next 15 working days</strong>,
+        <strong>if the respective bidder does not wish to participate in the upcoming re-tender.</strong></p>
+
+        <p>Bidders intending to re-apply may request adjustment of their previously submitted EMD and document fee against the new tender.</p>
+      </div>
+
+      <p>📧 <strong>Email:</strong> <a href="mailto:Tender@arihantardenaoa.org">Tender@arihantardenaoa.org</a><br />
+         📞 <strong>Phone:</strong> 9871291992 / 8130400550<br />
+         ☎️ <strong>President Contact:</strong> 9899308933</p>
+
+      <p><strong>By Order of the Board of Management</strong><br />
+      <strong>Arihant Arden Association of Apartment Owners (AAO)</strong><br />
+      <em>Date: 08-Nov-2025 &emsp; Place: Greater Noida (West)</em></p>
+    </article>
+
+    <!-- Original solar tender -->
+    <article class="tender">
+      <h3>NOTICE INVITING TENDER – Rooftop Solar System</h3>
+      <p class="tender-meta">
+        <strong>Tender No.:</strong> ARIHANT ARDEN/Rooftop Solar/2025-26/01 &bull;
+        <strong>Date:</strong> 23rd July 2025
+      </p>
+
+      <p>The Board of Management, Arihant Arden, GH-07A, Sector-1, Greater Noida (West), U.P – 201318,
+      invites sealed tenders from eligible companies for the design, installation, testing, and commissioning
+      of a 500 kVA Rooftop Solar System.</p>
+
+      <p>The tender document is available at
+      <a class="doc-link" href="SolarTenderAA_NishithFinal.pdf" target="_blank" rel="noopener">Solar System Tender document (PDF)</a>.
+      Any corrigendum or time extension, if applicable, will be published on the same website.</p>
+
+      <p><strong>Schedule</strong></p>
+      <ul>
+        <li><strong>Last Date for Submission of Bids:</strong> 4th September 2025, 6:00 PM</li>
+        <li><strong>Opening of Tender:</strong> 6th September 2025, 12 PM</li>
+        <li><strong>Venue:</strong> Iconic Club, 2nd Floor, Arihant Arden</li>
+      </ul>
+
+      <p><strong>Tender Fee and Deposits</strong></p>
+      <ul>
+        <li><strong>Document Fee:</strong> ₹5,000/-</li>
+        <li><strong>Earnest Money Deposit (EMD):</strong> ₹5,00,000/- (Five Lakhs Only) <strong>refundable</strong></li>
+      </ul>
+
+      <p><strong>Account Details for Fee/EMD Payment</strong></p>
+      <ul>
+        <li><strong>Account Name:</strong> Arihant Arden Association of Apartment Owners</li>
+        <li><strong>Account Number:</strong> 723801000065</li>
+        <li><strong>Bank Name:</strong> ICICI Bank</li>
+        <li><strong>IFSC Code:</strong> ICIC0007238</li>
+        <li><strong>Branch:</strong> Paramount Emotions, Sector-1, Greater Noida West – 201306</li>
+      </ul>
+
+      <p class="note-warning">🔔 <strong>Note:</strong> Please share your GST number while submitting the Tender Fee for GST-related purposes.</p>
+
+      <p>📧 <strong>Email:</strong> <a href="mailto:Tender@arihantardenaoa.org">Tender@arihantardenaoa.org</a><br />
+         📞 <strong>Phone:</strong> 9871291992 / 8130400550<br />
+         ☎️ <strong>President Contact:</strong> 9899308933</p>
+
+      <p><strong>President</strong><br />AAO, Arihant Arden</p>
+    </article>
+
+    <!-- Archived security tenders -->
+    <article class="tender tender-archived">
+      <h3>New Security Tender - Final Evaluation Result</h3>
+      <p class="tender-meta">Published: 09 June 2023</p>
+      <a class="doc-link" href="FinalTenderResult-ArihantArden.pdf" target="_blank" rel="noopener">Final Evaluation Result (PDF)</a>
+    </article>
+
+    <article class="tender tender-archived">
+      <h3>New Security Tender - Technical Evaluation Result</h3>
+      <p class="tender-meta">Published: 09 June 2023</p>
+      <a class="doc-link" href="TechnicalEvaluationResult.pdf" target="_blank" rel="noopener">Technical Evaluation Result (PDF)</a>
+    </article>
+
+    <article class="tender tender-archived">
+      <h3>New Security Tender Document</h3>
+      <p class="tender-meta">Published: 30 April 2023</p>
+      <a class="doc-link" href="SecurityServiceTenderDocument-AAAAO.pdf" target="_blank" rel="noopener">Tender Document (Last Date: 15 May 2023)</a>
+      <p><small>Also available at Arihant Arden AAO Office</small></p>
+    </article>
+
+    <article class="tender tender-archived">
+      <h3>New Security Tender Notice</h3>
+      <p class="tender-meta">Published: 24 April 2023</p>
+      <a class="doc-link" href="NewSecurityTenderNotice.pdf" target="_blank" rel="noopener">Tender Notice (PDF)</a>
+    </article>
+
+    <article class="tender tender-archived">
+      <h3>Notice to Abort &amp; Re-initiate Tender</h3>
+      <p class="tender-meta">Published: 20 April 2023</p>
+      <a class="doc-link" href="NewTenderProcessNotice.pdf" target="_blank" rel="noopener">View Notice (PDF)</a>
+    </article>
+
+    <article class="tender tender-archived">
+      <h3>Corrigendum on Security Tender</h3>
+      <p class="tender-meta">Published: 22 March 2023</p>
+      <a class="doc-link" href="CorrigendumSecurityTender.pdf" target="_blank" rel="noopener">Corrigendum Document (PDF)</a>
+    </article>
+
+    <article class="tender tender-archived">
+      <h3>Security Agency Tender</h3>
+      <p class="tender-meta">Bid Deadline: 31 March 2023, 6 PM</p>
+      <a class="doc-link" href="SecurityTenderNotice.pdf" target="_blank" rel="noopener">Notice Inviting Tender (PDF)</a><br />
+      <a class="doc-link" href="RevisedSecurityTenderDocument22032023.pdf" target="_blank" rel="noopener">Revised Tender Document (22 March 2023)</a>
+      <p><small>Also available at Arihant Arden AAO Office</small></p>
+    </article>
+  </main>
+
+  <footer>
+    &copy; 2025 Arihant Arden AOA. All rights reserved.
+  </footer>
+
+  <a class="floating-contact email" href="mailto:admin@arihantardenaoa.org">✉️ Email</a>
+  <a class="floating-contact" href="tel:+911205145800">📞 Call Office</a>
+
+  <script>
+    function toggleMenu(btn) {
+      var nav = document.querySelector('nav');
+      var open = nav.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open);
+    }
+
+    function toggleDarkMode() {
+      var dark = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('mode', dark ? 'dark' : 'light');
+    }
+
+    (function init() {
+      var saved = localStorage.getItem('mode');
+      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark-mode');
+      }
+    })();
+  </script>
+</body>
+</html>
