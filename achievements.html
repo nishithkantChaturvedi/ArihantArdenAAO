@@ -1,201 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Achievements – Arihant Arden AOA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2e7d32;
-            --secondary-color: #81c784;
-            --bg-gradient: linear-gradient(to right, #e8f5e9, #c8e6c9);
-            --text-color: #2e2e2e;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-color);
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 30px 40px;
-            background: linear-gradient(to right, #66bb6a, #43a047);
-            color: #fff;
-            flex-wrap: wrap;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        header img {
-            height: 80px;
-            margin-right: 20px;
-        }
-
-        header .info {
-            text-align: left;
-        }
-
-        header .info h1 {
-            margin: 0 0 10px;
-            font-size: 28px;
-        }
-
-        header .info p {
-            margin: 5px 0;
-            font-size: 15px;
-        }
-
-        header .info a {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #ffffff;
-            padding: 15px 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-
-        nav a:hover {
-            color: #1b5e20;
-            transform: translateY(-2px);
-        }
-
-        .content {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        ul li {
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #555;
-            font-size: 14px;
-            margin-top: 50px;
-            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
-
-            header .info {
-                text-align: center;
-            }
-
-            nav {
-                flex-direction: column;
-            }
-
-            nav a {
-                margin: 10px 0;
-            }
-
-            .content {
-                margin: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Achievements and upcoming enhancements at Arihant Arden." />
+  <title>Achievements - Arihant Arden AOA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+<body data-page="achievements">
+  <header class="site-header">
+    <img src="untitled.png" alt="Arihant Arden AAO logo" width="76" height="76" />
+    <div>
+      <h1 class="site-title">Arihant Arden Association of Apartment Owners</h1>
+      <p>Plot No GH-07A, Sector 1, Greater Noida West</p>
+      <p>Phone: +91 120 5145800 | Email: <a href="mailto:admin@arihantardenaoa.org">admin@arihantardenaoa.org</a></p>
+    </div>
+  </header>
 
-<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="mobile-nav-head">
+      <img src="untitled.png" alt="" width="42" height="42" />
+      <button class="icon-button hamburger" type="button" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="html_about.html" data-nav="about">About</a>
+      <a href="html_gallery.html" data-nav="gallery">Gallery</a>
+      <a href="tender.html" data-nav="tenders">Tenders</a>
+      <a href="achievements.html" data-nav="achievements">Achievements</a>
+      <a href="info-sharing.html" data-nav="info">Information Board</a>
+    </div>
+    <button class="icon-button dark-toggle" type="button" aria-label="Toggle dark mode">Mode</button>
+  </nav>
 
-    <header>
-        <img src="untitled.png" alt="Arihant Arden Logo">
-        <div class="info">
-            <h1>Arihant Arden Association of Apartment Owners</h1>
-            <p>Plot No GH-07A, Sector 1, Greater Noida West</p>
-            <p>Phone: +91 (0) 120 5145800 | Email:
-                <a href="mailto:admin@arihantardenaoa.org">admin@arihantardenaoa.org</a>
-            </p>
-        </div>
-    </header>
+  <main class="page">
+    <section class="panel">
+      <span class="eyebrow">Progress</span>
+      <h2 class="page-title">Achievements and Upcoming Enhancements</h2>
+      <p class="lead">A snapshot of recent improvements and planned upgrades for the Arihant Arden community.</p>
+    </section>
 
-  <div class="nav-links">
-    <a href="default.html" class="active">Home</a>
-    <a href="html_about.html">About</a>
-    <a href="html_gallery.html">Gallery</a>
-    <a href="tender.html">Tenders</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="info-sharing.html">Information Board</a>
+    <section class="panel content-section">
+      <h2>Major Achievements</h2>
+      <ul>
+        <li>Fully functional STP system.</li>
+        <li>24x7 water supply and upgraded underground water tank system.</li>
+        <li>Introduced Smart Access System for gates with resident mobile authentication.</li>
+        <li>Zero downtime maintenance implementation with round-the-clock support.</li>
+        <li>Transparent financial information sharing.</li>
+      </ul>
+    </section>
+
+    <section class="panel content-section">
+      <h2>Upcoming Enhancements</h2>
+      <ul>
+        <li>Adding rooftop solar panels for energy savings in common areas.</li>
+        <li>Launching a new kids play area with modern equipment.</li>
+        <li>Upgrading gym and clubhouse interiors.</li>
+        <li>Solar street lights across the society premises.</li>
+        <li>Deploying smart security surveillance with facial recognition on both gates.</li>
+        <li>CCTV coverage beneath podium.</li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="floating-contact" aria-label="Contact actions">
+    <a href="mailto:admin@arihantardenaoa.org">Email</a>
+    <a href="tel:+911205145800">Call Office</a>
   </div>
 
-    <div class="content">
-        <div class="section">
-            <h2>Major Achievements</h2>
-            <ul>
-                <li>Fully functional STP system.</li>
-                <li>24x7 Water Supply and upgraded underground water tank system.</li>
-                <li>Introduced Smart Access System for gates with resident mobile authentication.</li>
-                <li>Zero Downtime Maintenance Implementation with round-the-clock support.</li>
-                <li>Transparent Financial information sharing</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Upcoming Enhancements</h2>
-            <ul>
-
-                <li>Adding rooftop solar panels for energy savings in common areas.</li>
-                <li>Launching a new Kids Play Area with modern equipment.</li>
-                <li>Upgrading Gym & Clubhouse interiors by end of this year.</li>
-                <li>Solar Street Lights across the society premises.</li>
-                <li>Deploying smart security surveillance with facial recognition on both gates</li>
-                <li>CCTV coverage beneath podium</li>
-            </ul>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2025 Arihant Arden AOA. All rights reserved.
-    </footer>
-
+  <footer class="site-footer">&copy; 2026 Arihant Arden AOA. All rights reserved.</footer>
+  <script src="site.js"></script>
 </body>
-
 </html>
-
-
